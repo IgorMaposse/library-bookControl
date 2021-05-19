@@ -15,7 +15,14 @@ class CreateAutorsTable extends Migration
     {
         Schema::create('autors', function (Blueprint $table) {
             $table->id();
+            $table->integer('livro_id')->unsigned();
+            $table->foreign('livro_id')->references('id')->on('livros')->onDelete('cascade');
+            $table->string('nome')->unique();
             $table->timestamps();
+
+            
+           
+           
         });
     }
 
